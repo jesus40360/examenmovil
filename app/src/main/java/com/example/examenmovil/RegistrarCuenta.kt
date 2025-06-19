@@ -1,4 +1,15 @@
-package com.example.examenmovil
+package com.example.banco
 
-class RegistrarCuenta {
+data class RegistrarCuenta(
+    var numeroCuenta: String,
+    var nombreCliente: String,
+    var banco: String,
+    var saldoInicial: Float
+) {
+    fun esValido(): Boolean {
+        return numeroCuenta.isNotBlank() &&
+                nombreCliente.isNotBlank() &&
+                banco.isNotBlank() &&
+                saldoInicial >= 0
+    }
 }
